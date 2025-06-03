@@ -18,6 +18,52 @@ OrgaGPT est une application web conçue pour vous aider à organiser vos tâches
 8.  [Contributions](#contributions)
 9.  [Licence](#licence)
 
+## Configuration des Variables d'Environnement
+
+Pour utiliser les fonctionnalités de recherche web, vous devez configurer les variables d'environnement suivantes :
+
+1. Créez un fichier `.env` à la racine du projet
+2. Ajoutez les variables suivantes :
+
+```env
+# Configuration du serveur
+PORT=3000
+
+# Clés API pour la recherche web
+GOOGLE_SEARCH_API_KEY=your_google_api_key_here
+GOOGLE_SEARCH_ENGINE_ID=your_search_engine_id_here
+SERPAPI_KEY=your_serpapi_key_here
+
+# Autres configurations
+NODE_ENV=development
+```
+
+### Obtenir les clés API
+
+1. **Google Search API** :
+   - Allez sur [Google Cloud Console](https://console.cloud.google.com)
+   - Créez un nouveau projet
+   - Activez l'API Custom Search
+   - Créez une clé API
+   - Créez un moteur de recherche personnalisé sur [Google Programmable Search](https://programmablesearchengine.google.com)
+   - Copiez l'ID du moteur de recherche
+
+2. **SerpApi** :
+   - Inscrivez-vous sur [SerpApi](https://serpapi.com)
+   - Obtenez votre clé API dans le tableau de bord
+
+### Installation des Dépendances
+
+```bash
+npm install express cors axios dotenv
+```
+
+### Démarrer le Serveur
+
+```bash
+node server.js
+```
+
 ## 1. Introduction
 
 OrgaGPT combine des techniques de gestion de productivité reconnues (Matrice d'Eisenhower, Pomodoro, Time Blocking) avec un copilote IA interactif. L'objectif est de fournir un outil complet pour la planification, l'exécution et l'analyse des tâches quotidiennes, en s'inspirant des meilleures pratiques des grands cabinets de conseil.
@@ -26,7 +72,28 @@ OrgaGPT combine des techniques de gestion de productivité reconnues (Matrice d'
 
 Voici un aperçu des fichiers et dossiers principaux du projet :
 
-.├── index.html                # Fichier HTML principal de l'application├── style.css                 # Styles CSS principaux de l'application├── app.js                    # Logique principale de l'application (gestion des tâches, vues, etc.)├── api-service.js            # Service pour la gestion des appels API (initialement OpenAI) et base de connaissances├── dynamic-features.js       # Fonctionnalités dynamiques et interactives (graphiques, drag & drop, etc.)├── dynamic-styles.css        # Styles CSS pour les fonctionnalités dynamiques├── ollama-service.js         # Service d'intégration directe avec Ollama (LLM local)├── ollama-styles.css         # Styles spécifiques pour l'intégration Ollama├── real-ai-integration.js    # Module d'intégration IA avancée (multi-fournisseurs, gestion d'actions)└── README.md                 # Ce fichier
+```
+orga-gpt/
+├── src/
+│   ├── client/
+│   │   ├── js/
+│   │   │   ├── app.js                    # Logique principale de l'application
+│   │   │   ├── api-service.js            # Service pour la gestion des appels API
+│   │   │   ├── dynamic-features.js       # Fonctionnalités dynamiques et interactives
+│   │   │   ├── ollama-service.js         # Service d'intégration avec Ollama
+│   │   │   └── real-ai-integration.js    # Module d'intégration IA avancée
+│   │   ├── css/
+│   │   │   ├── style.css                 # Styles CSS principaux
+│   │   │   ├── dynamic-styles.css        # Styles pour les fonctionnalités dynamiques
+│   │   │   └── ollama-styles.css         # Styles pour l'intégration Ollama
+│   │   └── index.html                    # Fichier HTML principal
+│   └── server/
+│       └── server.js                     # Serveur Express pour la recherche web
+├── .env.example                          # Exemple de configuration des variables d'environnement
+├── package.json                          # Configuration du projet et dépendances
+└── README.md                             # Documentation du projet
+```
+
 ## 3. Fonctionnalités Clés
 
 * **Gestion des Tâches :** Création, modification, suppression et suivi de l'état d'avancement des tâches.
