@@ -1,0 +1,132 @@
+/* Styles pour l'intégration d'Ollama et le support Markdown */
+
+/* Indicateur de chargement (trois points animés) */
+.typing-indicator {
+    display: flex;
+    align-items: center;
+    column-gap: 4px;
+    padding: 10px 15px;
+}
+
+.typing-indicator span {
+    animation: blink 1s infinite;
+    font-size: 20px;
+}
+
+.typing-indicator span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.typing-indicator span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes blink {
+    0% { opacity: 0.2; }
+    20% { opacity: 1; }
+    100% { opacity: 0.2; }
+}
+
+/* Messages système et d'erreur */
+.system-message {
+    background-color: rgba(0, 128, 255, 0.1);
+    border-left: 3px solid #0080ff;
+}
+
+.error-message {
+    background-color: rgba(255, 0, 0, 0.1);
+    border-left: 3px solid #ff0000;
+}
+
+/* Badge IA active */
+.ollama-badge {
+    color: green;
+    font-size: 0.8em;
+    background: rgba(0,255,0,0.1);
+    padding: 2px 6px;
+    border-radius: 10px;
+    margin-left: 8px;
+}
+
+/* Styles pour le rendu Markdown dans le chat */
+.ai-message h1, .ai-message h2, .ai-message h3, .ai-message h4 {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    font-weight: bold;
+    color: #333;
+}
+
+.ai-message h1 { font-size: 1.5em; }
+.ai-message h2 { font-size: 1.3em; }
+.ai-message h3 { font-size: 1.2em; }
+.ai-message h4 { font-size: 1.1em; }
+
+.ai-message p {
+    margin-bottom: 0.8em;
+}
+
+.ai-message ul, .ai-message ol {
+    margin-left: 1.5em;
+    margin-bottom: 0.8em;
+}
+
+.ai-message li {
+    margin-bottom: 0.3em;
+}
+
+/* Style pour les blocs de code */
+.ai-message code {
+    background: rgba(0,0,0,0.1);
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 0.9em;
+}
+
+.ai-message pre {
+    background: rgba(0,0,0,0.05);
+    padding: 0.8em;
+    border-radius: 5px;
+    overflow-x: auto;
+    margin-bottom: 1em;
+}
+
+.ai-message pre code {
+    background-color: transparent;
+    padding: 0;
+}
+
+/* Styles pour les actions IA */
+.ai-action {
+    background-color: rgba(0, 255, 0, 0.1);
+    border-left: 3px solid #00c853;
+    padding: 8px;
+    margin: 8px 0;
+    border-radius: 0 4px 4px 0;
+}
+
+/* Styles pour les tableaux */
+.ai-message table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 15px 0;
+}
+
+.ai-message th, .ai-message td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.ai-message th {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Styles pour les citations */
+.ai-message blockquote {
+    border-left: 3px solid #ccc;
+    padding-left: 15px;
+    margin-left: 0;
+    color: #555;
+    font-style: italic;
+}
